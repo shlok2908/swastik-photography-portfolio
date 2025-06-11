@@ -7,7 +7,7 @@ export default function About() {
         {/* Text on Left */}
         <div className="md:w-1/2 text-center md:text-left">
           <h1 className="text-4xl font-bold mb-4">About Us</h1>
-          <p className="text-2xl leading-relaxed">
+          <p className="text-xl leading-relaxed">
             'Swastik' symbolizes auspicious beginnings, purity, and blessings in Indian culture. Through this platform, we aim to capture the sacredness, joy, and beauty of life's most cherished moments, especially weddings. Every frame we create is a blend of emotion, elegance, and cultural richness - just like the meaning behind
             'Swastik' itself.
           </p>
