@@ -12,13 +12,13 @@ function FeaturedStories() {
         Like a river flows surely to the sea, so it goes some things are meant to be.
       </p>
 
-      <div className="flex flex-col md:flex-row justify-center gap-4 mt-6 px-4">
+      <div className="flex overflow-x-auto md:overflow-visible gap-4 mt-6 px-4">
         {stories.map((url, idx) => (
           <img
             key={idx}
             src={url}
             alt={`story-${idx}`}
-            className="w-full md:w-1/3 rounded object-cover"
+            className="w-64 flex-none md:w-1/3 rounded object-cover"
           />
         ))}
       </div>
