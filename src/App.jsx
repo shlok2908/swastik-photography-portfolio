@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Fashion from "./pages/Fashion";
 import Wedding from "./pages/Wedding";
 import WeddingGallery from "./pages/WeddingGallery";
-import GalleryPage from "./pages/Gallerypage";
+
 import AboutUs from "./pages/AboutUs";
 import Enquire from "./pages/Enquire";
 
@@ -16,7 +16,7 @@ export default function App() {
     <Routes>
       {/* Landing page route */}
       <Route path="/" element={<Landing />} />
-      <Route path="/gallery/:slug" element={<GalleryPage />} />
+    
       
       {/* Protected routes that require Layout */}
       <Route path="/home" element={
