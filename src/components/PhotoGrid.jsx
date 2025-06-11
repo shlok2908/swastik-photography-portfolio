@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Auto-import all images from the photogrid folder
-const imagesObj = import.meta.glob("../assets/photogrid/*.{jpg,jpeg,png,webp}", { eager: true, as: "url" });
-const photoUrls = Object.values(imagesObj).sort(); // Sort for consistent order
+// Auto-import all AVIF images from the photogrid folder
+const imagesObj = import.meta.glob("../assets/photogrid/*.avif", { eager: true, as: "url" });
+const photoUrls = Object.values(imagesObj).sort();
 
 function PhotoGrid() {
   const [currentPage, setCurrentPage] = useState(0);
