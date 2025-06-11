@@ -16,22 +16,22 @@ function Landing() {
         <source src="/videos/background.mp4" type="video/mp4" />
       </video>
 
-      {/* Overlay for better text visibility */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-      
-      {/* Content container */}
-      <div className="absolute inset-0 flex items-center justify-center">
+
+      {/* Content Container */}
+      <div className="absolute inset-0 flex items-end justify-center pb-[60%] md:items-center md:pb-0">
         <button
           onClick={() => navigate('/home')}
-          className="px-8 py-3 text-2xl font-bodoni text-white border-2 border-white 
-                   hover:bg-white hover:text-black transition-all duration-300
-                   transform hover:scale-105 focus:outline-none"
+          className="px-4 py-1 text-xl md:px-8 md:py-3 md:text-2xl font-bodoni text-white border-2 border-white 
+                     hover:bg-white hover:text-black transition-all duration-300
+                     transform hover:scale-105 focus:outline-none"
         >
-          Swastik
+          Enter
         </button>
       </div>
     </div>
   );
 }
 
-export default Landing; 
+export default Landing;
