@@ -8,28 +8,28 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4 py-10">
           {/* Left Side: Contact + Social */}
           <div>
-            <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
-            <p>Name: Sarang </p>
-            <p>
+            <h3 className="text-lg md:text-xl xl:text-xl font-semibold mb-2">Contact Us</h3>
+            <p className="text-sm md:text-base xl:text-xl lg:text-lg">Name: Sarang</p>
+            <p className="text-sm md:text-base  xl:text-xl lg:text-lg">
               Email:{" "}
               <a
                 href="mailto:swastik.enquire@gmail.com"
-                className="underline text-gray-300"
+                className="underline xl:text-xl font-semibold text-gray-300"
               >
                 swastik.enquire@gmail.com
               </a>
             </p>
-            <p>Phone: +91 6355023913</p>
+            <p className="text-sm md:text-base xl:text-xl lg:text-lg">Phone: +91 6355023913</p>
 
-            <h3 className="text-lg font-semibold mt-6 mb-2">Social</h3>
+            <h3 className="text-lg md:text-xl xl:text-xl font-semibold mt-6 mb-2">Social</h3>
             <div className="flex items-center gap-2">
-              <Instagram size={20} />
               <a
                 href="https://instagram.com/swastikbysarangsashvat"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline text-gray-300"
+                className="flex items-center gap-2 hover:underline  font-semibold xl:text-xl text-gray-300 text-sm md:text-base lg:text-lg"
               >
+                <Instagram size={20} />
                 @swastikbysarangsashvat
               </a>
             </div>
@@ -45,7 +45,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="text-center text-sm text-gray-400 pb-4">
+        <div className="text-center text-xs font-semibold xl:text-xl md:text-sm text-gray-400 pb-4">
           © {new Date().getFullYear()} Swastik — All rights reserved.
         </div>
       </div>
