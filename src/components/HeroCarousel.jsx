@@ -22,7 +22,7 @@ function HeroCarousel() {
       <img
         src={images[index]}
         alt={`slide-${index}`}
-        className="w-full h-[400px] object-contain transition duration-700 rounded bg-[#f8f5f0]"
+        className="w-full h-[300px] object-contain transition duration-700 rounded bg-[#f8f5f0]"
       />
     </div>
   );

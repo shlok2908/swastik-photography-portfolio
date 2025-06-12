@@ -9,7 +9,7 @@ function Home() {
   }, []);
 
   return (
-    <div className=" font-bodoni min-h-screen bg-[#f8f5f0] text-[#111]">
+    <div className="pt-6 md:pt-16 font-bodoni min-h-screen bg-[#f8f5f0] text-[#111]">
       <div className="pt-16 text-center">
         <HeroCarousel />
 

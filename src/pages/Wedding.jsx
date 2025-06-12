@@ -16,7 +16,7 @@ function Wedding() {
   return (
     <div className="font-bodoni min-h-screen bg-[#f8f5f0] text-[#111]">
       <div className="px-4 py-16 max-w-5xl mx-auto bg-[#f8f5f0]">
-        <h1 className="text-4xl font-bold mb-10 text-center">WEDDING</h1>
+        <h1 className="text-4xl font-bold mb-10 mt-4 text-center">WEDDING</h1>
         <div className="space-y-12">
           {stories.map((story) => (
             <div key={story.slug} className="group">

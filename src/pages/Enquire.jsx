@@ -60,7 +60,7 @@ export default function Enquire() {
   return (
     <div className="font-bodoni min-h-screen bg-[#f8f5f0] text-[#111] px-4 py-16">
       <div className="max-w-3xl mx-auto bg-[#f8f5f0]">
-        <h1 className="text-4xl font-bold mb-8 text-center">Enquire</h1>
+        <h1 className="text-4xl font-bold mb-8 mt-4 text-center">Enquire</h1>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Full Name */}
