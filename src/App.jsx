@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Fashion from "./pages/Fashion";
 import Wedding from "./pages/Wedding";
 import WeddingGallery from "./pages/WeddingGallery";
-
+import StoryDetails from './pages/StoryDetails';
 import AboutUs from "./pages/AboutUs";
 import Enquire from "./pages/Enquire";
 
@@ -22,6 +22,11 @@ export default function App() {
       <Route path="/home" element={
         <Layout>
           <Home />
+        </Layout>
+      } />
+      <Route path="/story/:slug" element={
+        <Layout>
+          <StoryDetails />
         </Layout>
       } />
       <Route path="/fashion" element={
