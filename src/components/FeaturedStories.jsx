@@ -59,7 +59,7 @@ return (
           ))}
         </div>
       </div>
-
+      <div className="max-w-[90rem] mx-auto">
       <div className="hidden lg:flex">
        <div className="mx-auto">
         <div className="grid grid-cols-3 gap-6">
@@ -75,6 +75,7 @@ return (
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 );
