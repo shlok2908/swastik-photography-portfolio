@@ -17,6 +17,7 @@
     "react-router-dom": "^7.6.2",
     "react-swipeable": "^7.0.2",
     "swiper": "^11.2.8",
+    "tailwind-scrollbar-hide": "^4.0.0",
     "yet-another-react-lightbox": "^3.23.2"
   },
   "devDependencies": {
