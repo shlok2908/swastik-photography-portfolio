@@ -60,7 +60,8 @@ return (
         </div>
       </div>
 
-      <div className="hidden lg:grid grid-cols-3 gap-6 justify-center">
+      <div className="hidden lg:flex justify-center">
+      <div className="grid grid-cols-3 gap-6">
         {stories.map((story) => (
           <img
             key={story.id}
@@ -73,6 +74,7 @@ return (
       </div>
     </div>
   </div>
+</div>
 );
 };
 
