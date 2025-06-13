@@ -38,18 +38,20 @@ const FeaturedStories = () => {
         Like a river flows surely to the sea, so it goes some things are meant to be.
       </p>
 
-      <div className="flex overflow-x-auto md:overflow-visible gap-4 mt-6 px-4">
+      <div className="mt-6 overflow-x-auto md:overflow-visible px-4">
+      <div className="flex gap-4 w-max md:w-full md:justify-center">
         {stories.map((story) => (
           <img
             key={story.id}
             src={story.cover}
             alt={story.id}
-            className="w-64 flex-none md:w-1/3 rounded object-cover cursor-pointer hover:scale-105 transition"
+            className="w-[16rem] sm:w-[20rem] md:w-[24rem] aspect-[3/4] flex-none rounded object-cover cursor-pointer hover:scale-105 transition"
             onClick={() => navigate(`/story/${story.id}`)}
           />
         ))}
       </div>
     </div>
+  </div>
   );
 };
 
