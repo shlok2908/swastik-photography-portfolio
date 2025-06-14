@@ -45,18 +45,19 @@ return (
       Like a river flows surely to the sea, so it goes some things are meant to be.
     </p>
 
-    <div className="mt-6 px-4">
-      <div className="block lg:hidden overflow-x-auto scrollbar-hide">
-        <div className="flex gap-4 w-max">
-          {stories.map((story) => (
-            <img
-              key={story.id}
-              src={story.cover}
-              alt={story.id}
-              className="w-[16rem] flex-none aspect-[3/4] rounded object-cover cursor-pointer hover:scale-105 transition"
-              onClick={() => navigate(`/story/${story.id}`)}
-            />
-          ))}
+      <div className="mt-6 px-4">
+        <div className="block lg:hidden">
+          <div className="flex justify-center gap-3">
+            {stories.slice(0, 3).map((story) => (
+              <img
+                key={story.id}
+                src={story.cover}
+                alt={story.id}
+                className="w-28 md:w-40 aspect-[3/4] rounded object-cover cursor-pointer hover:scale-105 transition"
+                onClick={() => navigate(`/story/${story.id}`)}
+              />
+            ))}
+          </div>
         </div>
       </div>
       <div className="max-w-[90rem] mx-auto">
@@ -77,7 +78,7 @@ return (
   </div>
 </div>
 </div>
-</div>
+  
 );
 };
 
