@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+// Load all images from assets/stories/<folder>/*.jpg
 const images = import.meta.glob('../assets/stories/*/*.{jpg,jpeg,png}', { eager: true });
 
 const FeaturedStories = () => {
@@ -38,48 +39,46 @@ const FeaturedStories = () => {
     setIsRealMobile(realMobile);
   }, []);
 
-return (
-  <div className="my-16 text-center">
-    <h2 className="text-xl font-semibold">REAL LOVE STORIES</h2>
-    <p className="text-xs mt-1 text-gray-600 uppercase tracking-wide">
-      Like a river flows surely to the sea, so it goes some things are meant to be.
-    </p>
+  return (
+    <div className="my-16 text-center">
+      <h2 className="text-xl font-semibold">REAL LOVE STORIES</h2>
+      <p className="text-xs mt-1 text-gray-600 uppercase tracking-wide">
+        Like a river flows surely to the sea, so it goes some things are meant to be.
+      </p>
 
-      <div className="mt-6 px-4">
-        <div className="block lg:hidden">
-          <div className="flex justify-center gap-3">
-            {stories.slice(0, 3).map((story) => (
+      {/* Mobile View */}
+      <div className="mt-6 px-4 lg:hidden">
+        <div className="flex justify-center gap-3">
+          {stories.slice(0, 3).map((story) => (
+            <img
+              key={story.id}
+              src={story.cover}
+              alt={story.id}
+              className="w-28 md:w-40 aspect-[9/16] rounded object-cover cursor-pointer hover:scale-105 transition"
+              onClick={() => navigate(`/story/${story.id}`)}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop View */}
+      <div className="max-w-[90rem] mx-auto hidden lg:flex mt-10">
+        <div className="mx-auto">
+          <div className="grid grid-cols-3 gap-6">
+            {stories.map((story) => (
               <img
                 key={story.id}
                 src={story.cover}
                 alt={story.id}
-                className="w-28 md:w-40 aspect-[9/16] rounded object-cover cursor-pointer hover:scale-105 transition"
+                className="w-[30rem] aspect-[9/16] rounded object-cover cursor-pointer hover:scale-105 transition mx-auto"
                 onClick={() => navigate(`/story/${story.id}`)}
               />
             ))}
           </div>
         </div>
       </div>
-      <div className="max-w-[90rem] mx-auto">
-      <div className="hidden lg:flex">
-       <div className="mx-auto">
-        <div className="grid grid-cols-3 gap-6">
-        {stories.map((story) => (
-          <img
-            key={story.id}
-            src={story.cover}
-            alt={story.id}
-            className="w-[30rem] aspect-[9/16] rounded object-cover cursor-pointer hover:scale-105 transition mx-auto"
-            onClick={() => navigate(`/story/${story.id}`)}
-          />
-        ))}
-      </div>
     </div>
-  </div>
-</div>
-</div>
-  
-);
+  );
 };
 
 export default FeaturedStories;

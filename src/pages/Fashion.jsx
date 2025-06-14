@@ -1,8 +1,6 @@
-// File: src/pages/Fashion.jsx
 import React from "react";
-import Masonry from "react-masonry-css";
 
-// Automatically import all images from /assets/galleries/fashion/
+// Auto import all images from /assets/galleries/fashion/
 const images = import.meta.glob("/src/assets/galleries/fashion/*.{jpg,jpeg,png,webp}", {
   eager: true,
   as: "url",
@@ -10,31 +8,21 @@ const images = import.meta.glob("/src/assets/galleries/fashion/*.{jpg,jpeg,png,w
 
 const photoList = Object.values(images);
 
-const breakpointColumnsObj = {
-  default: 3,
-  1024: 2,
-  640: 1,
-};
-
 export default function Fashion() {
   return (
-    <div className="min-h-screen bg-[#f8f5f0] font-bodoni text-[#111] px-4 py-16">
+    <div className="max-w-5xl mx-auto px-4 py-10 bg-[#f8f5f0] font-bodoni text-[#111]">
       <h1 className="text-4xl font-bold mb-8 mt-4 text-center">FASHION</h1>
 
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid bg-[#f8f5f0]"
-        columnClassName="my-masonry-grid_column bg-[#f8f5f0]"
-      >
-        {photoList.map((img, idx) => (
+      <div className="columns-2 gap-2 px-2">
+        {photoList.map((img, index) => (
           <img
-            key={idx}
+            key={index}
             src={img}
-            alt={`Fashion ${idx + 1}`}
-            className="w-full mb-4 rounded-lg shadow-md"
+            alt={`Fashion ${index + 1}`}
+            className="mb-2 w-full rounded object-cover"
           />
         ))}
-      </Masonry>
+      </div>
     </div>
   );
 }
