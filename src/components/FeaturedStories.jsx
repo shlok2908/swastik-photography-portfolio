@@ -53,7 +53,7 @@ return (
                 key={story.id}
                 src={story.cover}
                 alt={story.id}
-                className="w-28 md:w-40 aspect-[3/4] rounded object-cover cursor-pointer hover:scale-105 transition"
+                className="w-28 md:w-40 aspect-[9/16] rounded object-cover cursor-pointer hover:scale-105 transition"
                 onClick={() => navigate(`/story/${story.id}`)}
               />
             ))}
@@ -69,7 +69,7 @@ return (
             key={story.id}
             src={story.cover}
             alt={story.id}
-            className="w-[30rem] aspect-[3/4] rounded object-cover cursor-pointer hover:scale-105 transition mx-auto"
+            className="w-[30rem] aspect-[9/16] rounded object-cover cursor-pointer hover:scale-105 transition mx-auto"
             onClick={() => navigate(`/story/${story.id}`)}
           />
         ))}
