@@ -14,6 +14,12 @@ const allCovers = import.meta.glob(
   { eager: true, as: "url" }
 );
 
+// Load all desc.txt files
+const allDescriptions = import.meta.glob(
+  "/src/assets/galleries/wedding/*/desc.txt",
+  { eager: true, as: "raw" }
+);
+
 // Group images by folder
 const weddingData = {};
 
@@ -27,6 +33,7 @@ for (const path in allWeddingImages) {
       title: slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
       images: [],
       cover: allCovers[`/src/assets/galleries/wedding/${slug}/cover.jpg`] || null,
+      description: allDescriptions[`/src/assets/galleries/wedding/${slug}/desc.txt`] || null
     };
   }
 
@@ -81,18 +88,24 @@ function WeddingGallery() {
           <img
             src={wedding.cover}
             alt="Cover"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-55"
             style={{
               transform: `translateY(${offsetY}px)`,
               transition: "transform 0.1s ease-out",
             }}
           />
+      <div className="absolute inset-0 flex items-center justify-center px-4 bg-black/30">
+            {wedding.description && (
+              <p className="text-white text-center text-xl md:text-2xl max-w-3xl leading-relaxed">
+                {wedding.description}
+              </p>
+            )}
+          </div>
         </div>
       )}
 
       {/* Gallery */}
       <div className="px-4 py-16">
-        <h1 className="text-4xl font-bold mb-10 text-center">{wedding.title}</h1>
         <Masonry
           breakpointCols={breakpointColumnsObj}
           className="my-masonry-grid bg-[#f8f5f0]"

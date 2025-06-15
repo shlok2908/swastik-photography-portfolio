@@ -25,7 +25,7 @@ function Wedding() {
         to={`/gallery/${story.slug}`}
         className="block group hover:shadow-xl transition rounded"
       >
-        <div className="bg-[#ffe4c4] p-6 ded shadow-md w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
+        <div className="bg-white p-6 ded shadow-md w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
           <div className="aspect-[4/5]">
             <img
               src={story.cover}
