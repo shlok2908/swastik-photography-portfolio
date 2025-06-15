@@ -32,7 +32,7 @@ const StoryView = () => {
         key={index}
         src={img}
         alt=""
-        className="mb-2 w-full rounded object-cover"
+        className="mb-2 w-full object-cover"
         />
     ))}
     </div>

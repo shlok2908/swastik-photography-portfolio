@@ -28,7 +28,7 @@ export default function Fashion() {
             key={idx}
             src={img}
             alt={`Fashion ${idx + 1}`}
-            className="w-full mb-4 rounded shadow"
+            className="w-full mb-4 shadow"
           />
         ))}
       </Masonry>

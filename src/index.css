@@ -5,22 +5,39 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: #fdfbf7; 
-  color: #474444; 
+  background-color: #fdfbf7;
+  color: #474444;
 }
+
+/* 🔳 Masonry Grid */
 .my-masonry-grid {
   display: flex;
-  margin-left: -1rem; /* gutter size offset */
+  margin-left: -1rem;
   width: auto;
 }
 .my-masonry-grid_column {
-  padding-left: 1rem; /* gutter size */
+  padding-left: 1rem;
   background-clip: padding-box;
 }
-
-/* Optional image styling for better layout */
 .my-masonry-grid img {
-  border-radius: 12px;
+  border-radius: 0;
   display: block;
   width: 100%;
+}
+
+/* 🌄 Parallax Cover Image */
+.parallax-hero {
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* 📱 Mobile fallback */
+@media (max-width: 768px) {
+  .parallax-hero {
+    background-attachment: scroll;
+  }
 }
