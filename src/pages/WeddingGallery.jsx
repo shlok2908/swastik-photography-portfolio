@@ -1,25 +1,38 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Masonry from "react-masonry-css";
+import { useEffect, useRef, useState } from "react";
 
+// Load all wedding images
 const allWeddingImages = import.meta.glob(
   "/src/assets/galleries/wedding/*/*.{jpg,jpeg,png,webp}",
   { eager: true, as: "url" }
 );
 
+// Load all cover images
+const allCovers = import.meta.glob(
+  "/src/assets/galleries/wedding/*/cover.jpg",
+  { eager: true, as: "url" }
+);
+
+// Group images by folder
 const weddingData = {};
+
 for (const path in allWeddingImages) {
   const parts = path.split("/");
   const slug = parts[parts.length - 2];
   const image = allWeddingImages[path];
+
   if (!weddingData[slug]) {
     weddingData[slug] = {
       title: slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
       images: [],
-      cover: `/src/assets/galleries/wedding/${slug}/cover.jpg`, // adjust if needed
+      cover: allCovers[`/src/assets/galleries/wedding/${slug}/cover.jpg`] || null,
     };
   }
-  weddingData[slug].images.push(image);
+
+  if (!path.endsWith("cover.jpg")) {
+    weddingData[slug].images.push(image);
+  }
 }
 
 const breakpointColumnsObj = {
@@ -28,14 +41,23 @@ const breakpointColumnsObj = {
   640: 1,
 };
 
-export default function WeddingGallery() {
+function WeddingGallery() {
   const { slug } = useParams();
   const wedding = weddingData[slug];
-
-  const [scrollY, setScrollY] = useState(0);
+  const coverRef = useRef(null);
+  const [offsetY, setOffsetY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+    const handleScroll = () => {
+      if (coverRef.current) {
+        const scrollY = window.scrollY;
+        const limit = coverRef.current.offsetHeight;
+        if (scrollY <= limit) {
+          setOffsetY(scrollY / 2); // Adjust the divisor for speed
+        }
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -51,36 +73,37 @@ export default function WeddingGallery() {
   return (
     <div className="font-bodoni min-h-screen bg-[#f8f5f0] text-[#111]">
       {/* Parallax Cover Image */}
-      <div className="w-full h-screen overflow-hidden relative">
-        <img
-          src={wedding.cover}
-          alt={wedding.title}
-          className="w-full h-full object-cover"
-          style={{
-            transform: `translateY(${scrollY * 0.2}px)`, // Only parallax scroll
-            transition: "transform 0.2s ease-out",
-          }}
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-          <h1 className="text-white text-5xl md:text-6xl font-bold">
-            {wedding.title}
-          </h1>
+      {wedding.cover && (
+        <div
+          ref={coverRef}
+          className="relative w-full overflow-hidden h-[80vh]"
+        >
+          <img
+            src={wedding.cover}
+            alt="Cover"
+            className="w-full h-full object-cover"
+            style={{
+              transform: `translateY(${offsetY}px)`,
+              transition: "transform 0.1s ease-out",
+            }}
+          />
         </div>
-      </div>
+      )}
 
-      {/* Masonry Image Grid */}
+      {/* Gallery */}
       <div className="px-4 py-16">
+        <h1 className="text-4xl font-bold mb-10 text-center">{wedding.title}</h1>
         <Masonry
           breakpointCols={breakpointColumnsObj}
-          className="my-masonry-grid"
-          columnClassName="my-masonry-grid_column"
+          className="my-masonry-grid bg-[#f8f5f0]"
+          columnClassName="my-masonry-grid_column bg-[#f8f5f0]"
         >
           {wedding.images.map((img, idx) => (
             <img
               key={idx}
               src={img}
               alt={`Wedding ${idx + 1}`}
-              className="w-full mb-4 shadow-md"
+              className="w-full mb-4 shadow"
             />
           ))}
         </Masonry>
@@ -88,3 +111,5 @@ export default function WeddingGallery() {
     </div>
   );
 }
+
+export default WeddingGallery;
