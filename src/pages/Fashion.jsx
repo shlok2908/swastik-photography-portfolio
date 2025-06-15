@@ -1,6 +1,6 @@
 import React from "react";
 
-// Auto import all images from /assets/galleries/fashion/
+// Auto import all images from the fashion folder
 const images = import.meta.glob("/src/assets/galleries/fashion/*.{jpg,jpeg,png,webp}", {
   eager: true,
   as: "url",
@@ -10,16 +10,15 @@ const photoList = Object.values(images);
 
 export default function Fashion() {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10 bg-[#f8f5f0] font-bodoni text-[#111]">
-      <h1 className="text-4xl font-bold mb-8 mt-4 text-center">FASHION</h1>
+    <div className="max-w-6xl mx-auto px-4 py-16 bg-[#f8f5f0] font-bodoni text-[#111]">
+      <h1 className="text-4xl font-bold mb-8 mt-4 text-center">EDITORIAL</h1>
 
-      <div className="columns-2 gap-2 px-2">
-        {photoList.map((img, index) => (
+      <div className="grid grid-cols-2 gap-4">
+        {photoList.map((img, i) => (
           <img
-            key={index}
+            key={i}
             src={img}
-            alt={`Fashion ${index + 1}`}
-            className="mb-2 w-full rounded object-cover"
+            className="w-full h-[700px] object-cover rounded"
           />
         ))}
       </div>
