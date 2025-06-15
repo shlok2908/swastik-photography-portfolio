@@ -13,7 +13,7 @@ function Landing() {
         playsInline
         preload="auto"
         poster="/videos/preview-desktop.JPG"
-         className="hidden md:block absolute inset-0 w-full h-full object-contain bg-black"
+        className="hidden md:block absolute inset-0 w-full h-full object-cover"
       >
         <source src="/videos/desktop-video.mp4" type="video/mp4" />
       </video>

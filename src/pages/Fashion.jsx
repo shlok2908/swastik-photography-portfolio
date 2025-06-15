@@ -1,34 +1,34 @@
 import React from "react";
 import Masonry from "react-masonry-css";
 
-// Auto import all images from folder
+// Import all images from the flat folder
 const images = import.meta.glob("/src/assets/galleries/fashion/*.{jpg,jpeg,png,webp}", {
   eager: true,
   as: "url",
 });
 const photoList = Object.values(images);
 
-const breakpoints = {
-  default: 2,
-  0: 2, // ⬅ Force 2 columns on all screens including mobile
+const breakpointColumnsObj = {
+  default: 2, // 👈 Always show 2 columns on all screen sizes
+  0: 2,
 };
 
 export default function Fashion() {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-16 bg-[#f8f5f0] font-bodoni text-[#111]">
-      <h1 className="text-4xl font-bold mb-8 mt-4 text-center">EDITORIAL</h1>
+    <div className="font-bodoni min-h-screen bg-[#f8f5f0] text-[#111] px-4 py-20">
+      <h1 className="text-4xl font-bold mb-10 text-center">Editorial</h1>
 
       <Masonry
-        breakpointCols={breakpoints}
-        className="flex gap-4"
-        columnClassName="flex flex-col gap-4"
+        breakpointCols={breakpointColumnsObj}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
       >
-        {photoList.map((img, i) => (
+        {photoList.map((img, idx) => (
           <img
-            key={i}
+            key={idx}
             src={img}
-            alt=""
-            className="w-full rounded object-cover"
+            alt={`Fashion ${idx + 1}`}
+            className="w-full mb-4 rounded shadow"
           />
         ))}
       </Masonry>
