@@ -21,7 +21,7 @@ export default function Navbar() {
       <div className="flex justify-center items-center gap-4 sm:gap-8 md:gap-12 text-sm sm:text-lg md:text-xl uppercase tracking-wider">
         <Link 
           to="/home" 
-          className={`font-semibold hover:underline text-center py-2 ${
+          className={`font-semibold  text-center py-2 ${
             location.pathname === '/home' ? 'text-gray-600' : ''
           }`}
         >
@@ -29,12 +29,12 @@ export default function Navbar() {
         </Link>
         {/* Gallery Dropdown */}
         <div className="relative group text-center py-2">
-          <span className="font-semibold cursor-pointer hover:underline">Stories</span>
+          <span className="font-semibold cursor-pointer ">Stories</span>
           <div className="absolute top-full left-1/2 -translate-x-1/2 bg-[#f8f5f0] border border-gray-300 shadow-md py-2 px-6 space-y-2 z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-300 text-center min-w-[120px]">
-            <Link to="/fashion" className="text-sm sm:text-lg block hover:underline">
+            <Link to="/fashion" className="text-sm sm:text-lg block ">
               EDITORIAL
             </Link>
-            <Link to="/wedding" className="text-sm sm:text-lg block hover:underline">
+            <Link to="/wedding" className="text-sm sm:text-lg block ">
               Wedding
             </Link>
           </div>

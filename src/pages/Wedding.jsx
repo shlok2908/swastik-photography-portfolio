@@ -15,8 +15,8 @@ const stories = Object.entries(coverImages).map(([path, url]) => {
 function Wedding() {
   return (
     <div className="font-bodoni min-h-screen bg-[#f8f5f0] text-[#111]">
-      <div className="px-4 py-20 max-w-5xl mx-auto bg-[#f8f5f0]">
-        <h1 className="text-4xl font-bold mb-10 mt-4 text-center">Wedding</h1>
+      <div className="px-4 py-14 max-w-5xl mx-auto bg-[#f8f5f0]">
+        <h1 className="text-3xl font-bold mb-6 mt-4 text-center">Wedding</h1>
 
         <div className="space-y-12">
           {stories.map((story) => (

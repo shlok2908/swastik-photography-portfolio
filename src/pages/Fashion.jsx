@@ -16,7 +16,7 @@ const breakpointColumnsObj = {
 export default function Fashion() {
   return (
     <div className="font-bodoni min-h-screen bg-[#f8f5f0] text-[#111] px-4 py-20">
-      <h1 className="text-4xl font-bold mb-10 text-center">Editorial</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">Editorial</h1>
 
       <Masonry
         breakpointCols={breakpointColumnsObj}

@@ -40,10 +40,9 @@ const FeaturedStories = () => {
   }, []);
 
   return (
-    <div className="my-16 text-center">
-      <h2 className="text-xl font-semibold">REAL LOVE STORIES</h2>
-      <p className="text-xs mt-1 text-gray-600 uppercase tracking-wide">
-        Like a river flows surely to the sea, so it goes some things are meant to be.
+    <div className="my-4 text-center">
+      <p className="text-xl mt-1 italic font-bold text-gray-600 uppercase tracking-wide">
+        "Not just a photographer — A storyteller of love, style and music." 
       </p>
 
       {/* Mobile View */}

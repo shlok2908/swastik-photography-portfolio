@@ -14,13 +14,13 @@ function Home() {
         <HeroCarousel />
 
         <div className="max-w-2xl mx-auto my-10 px-4 text-gray-800">
-          <h2 className="text-lg italic">"YOU FEEL. I FOCUS. WE FRAME"</h2>
+          <h2 className="text-xl font-bold style={{ wordSpacing: '4px' }} ">"THEY FELT IT . I FRAMED IT. "</h2>
           <p className="mt-4 text-sm">
-            A wedding is a celebration mingled with the showcase of love & culture. 
-            A visual expression with vibrant colors, fresh garlands, heirloom jewelry, and rituals so emotional...
+            Every wedding holds a thousand untold poems — woven into fabric, rituals, and stolen glances.  
+            Our lens finds the verse in your love story.
           </p>
-          <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-gray-600">
-            We are creating fiction out of reality.
+          <p className="mt-2 text-lg font-bold italic tracking-wide text-gray-600">
+            "I don't capture perfection, I capture connection."
           </p>
         </div>
 
