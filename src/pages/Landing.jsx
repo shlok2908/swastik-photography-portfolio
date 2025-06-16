@@ -38,14 +38,16 @@ function Landing() {
       {/* Button */}
       <div className="absolute inset-0 z-20 flex justify-center items-end md:items-center">
         <button
-          onClick={() => navigate('/home')}
-          className="mb-[60%] md:mb-0 md:translate-y-40
-                     px-4 py-1 text-xl md:px-8 md:py-3 md:text-2xl font-bodoni text-white border-2 border-white 
-                     hover:bg-white hover:text-black transition-all duration-300
-                     transform hover:scale-105 focus:outline-none"
-        >
-          Enter
-        </button>
+        onClick={() => navigate('/home')}
+        className="mb-[60%] md:mb-0 md:translate-y-40
+                  px-2 py-0.5 md:px-4 md:py-1 text-xl md:text-2xl font-avenir next text-white border-2 border-white 
+                  hover:bg-white hover:text-black transition-all duration-300
+                  transform hover:scale-105 focus:outline-none"
+        style={{ wordSpacing: '6px' }}
+      >
+        Enter
+      </button>
+
       </div>
     </div>
   );
