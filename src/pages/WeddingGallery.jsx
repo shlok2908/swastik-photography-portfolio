@@ -94,7 +94,7 @@ function WeddingGallery() {
               transition: "transform 0.1s ease-out",
             }}
           />
-      <div className="absolute inset-0 flex items-center justify-center px-4 bg-black/30">
+          <div className="absolute inset-0 flex items-end justify-center px-4 pb-10 bg-black/30">
             {wedding.description && (
               <p className="text-white text-center text-xl md:text-2xl max-w-3xl leading-relaxed">
                 {wedding.description}
@@ -116,7 +116,7 @@ function WeddingGallery() {
               key={idx}
               src={img}
               alt={`Wedding ${idx + 1}`}
-              className="w-full mb-4 shadow"
+              className="w-full mb-2 shadow"
             />
           ))}
         </Masonry>
