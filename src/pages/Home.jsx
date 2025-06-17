@@ -14,13 +14,13 @@ function Home() {
         <HeroCarousel />
 
         <div className="max-w-2xl mx-auto my-10 px-4 text-gray-800">
-          <h2 className="text-xl font-bold style={{ wordSpacing: '4px' }} ">"THEY FELT IT . I FRAMED IT. "</h2>
+          <h2 className="text-xl font-bold style={{ wordSpacing: '4px' }} ">"Swastik is not just a name, it's the soul of every frame."</h2>
           <p className="mt-4 text-sm">
-            Every wedding holds a thousand untold poems — woven into fabric, rituals, and stolen glances.  
-            Our lens finds the verse in your love story.
+            "Swastik by Sarang Sashvat is more than a photography brand, it's a cultural lens.
+With every wedding / capture, I document rituals, raw emotions, and the sanctity of traditions passed down through generations.
           </p>
           <p className="mt-2 text-lg font-bold italic tracking-wide text-gray-600">
-            "I don't capture perfection, I capture connection."
+            I want to create timeless frames that speak of joy, purity & the soul of Indian Heritage.
           </p>
         </div>
 

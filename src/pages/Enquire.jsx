@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
-
+import bgImage from "../assets/bg-enquire-mobile.jpg";
+import bgDesktop from "../assets/bg-enquire-desktop.jpg";
 
 export default function Enquire() {
   const [formData, setFormData] = useState({
     fullName: "",
     coupleName: "",
     email: "",
+    shootType: "",
     eventDate: "",
     guestCount: "",
+    message: "",
   });
 
   const handleChange = (e) => {
@@ -21,51 +24,64 @@ export default function Enquire() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Prepare template parameters matching your EmailJS template variables
     const templateParams = {
       full_name: formData.fullName,
       couple_name: formData.coupleName,
       email: formData.email,
       event_date: formData.eventDate,
       guest_count: formData.guestCount,
+      shoot_type: formData.shootType,
+      message: formData.message,
       user_email: formData.email,
     };
 
     emailjs
       .send(
-        "service_dzah7ym",   
-        "template_lsunfq6",  
+        "service_dzah7ym", // Your EmailJS service ID
+        "template_lsunfq6", // Your template ID
         templateParams,
-        "WbtDR8dctOn7GomuR"       
+        "WbtDR8dctOn7GomuR" // Your public key
       )
       .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
+        () => {
           alert("Enquiry submitted successfully!");
           setFormData({
             fullName: "",
             coupleName: "",
             email: "",
+            shootType: "",
             eventDate: "",
             guestCount: "",
+            message: "",
           });
         },
-        (err) => {
-          console.error("FAILED...", err);
+        () => {
           alert("Failed to send enquiry. Please try again later.");
         }
       );
   };
 
   return (
-    <div className="font-bodoni min-h-screen bg-[#f8f5f0] text-[#111] px-4 py-16">
-      <div className="max-w-3xl mx-auto bg-[#f8f5f0]">
-        <h1 className="text-4xl font-bold mb-8 mt-4 text-center">Enquire</h1>
+   <div
+  className="min-h-screen w-full relative flex items-center justify-center px-4 py-16 
+             bg-center bg-cover bg-fixed"
+  style={{
+    backgroundImage: `url(${window.innerWidth >= 768 ? bgDesktop : bgImage})`,
+  }}
+>
+
+      
+      {/* Overlay for desktop (behind form) */}
+      <div className="hidden md:block fixed inset-0 bg-black/40 z-0" />
+
+      {/* Form Container */}
+      <div className="relative z-10 w-full max-w-3xl text-white p-6 md:p-10 font-bodoni opacity-70">
+        <h1 className="text-4xl font-bold mb-8 text-center">Enquire</h1>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Full Name */}
           <div>
-            <label className="block font-semibold mb-1">
+            <label className="block font-semibold mb-1 text-xl">
               Full Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -74,28 +90,25 @@ export default function Enquire() {
               required
               value={formData.fullName}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-4 py-2"
+              className="w-full border border-gray-300 rounded px-4 py-2 text-black"
             />
           </div>
 
           {/* Couple Name */}
           <div>
-            <label className="block font-semibold mb-1">
-              Couple Name <span className="text-red-500">*</span>
-            </label>
+            <label className="block font-semibold mb-1 text-xl">Couple Name</label>
             <input
               type="text"
               name="coupleName"
-              required
               value={formData.coupleName}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-4 py-2"
+              className="w-full border border-gray-300 rounded px-4 py-2 text-black"
             />
           </div>
 
           {/* Email */}
           <div>
-            <label className="block font-semibold mb-1">
+            <label className="block font-semibold mb-1 text-xl">
               Email <span className="text-red-500">*</span>
             </label>
             <input
@@ -104,13 +117,32 @@ export default function Enquire() {
               required
               value={formData.email}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-4 py-2"
+              className="w-full border border-gray-300 rounded px-4 py-2 text-black"
             />
+          </div>
+
+          {/* Type of Shoot */}
+          <div>
+            <label className="block font-semibold mb-1 text-xl">
+              Type of Shoot <span className="text-red-500">*</span>
+            </label>
+            <select
+              name="shootType"
+              required
+              value={formData.shootType}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded px-4 py-2 text-black"
+            >
+              <option value="" disabled>Select a type</option>
+              <option value="Wedding">Wedding</option>
+              <option value="Fashion">Fashion</option>
+              <option value="LiveShows">Live Shows</option>
+            </select>
           </div>
 
           {/* Date of Event */}
           <div>
-            <label className="block font-semibold mb-1">
+            <label className="block font-semibold mb-1 text-xl">
               Date of Event <span className="text-red-500">*</span>
             </label>
             <input
@@ -119,23 +151,33 @@ export default function Enquire() {
               required
               value={formData.eventDate}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-4 py-2"
+              className="w-full border border-gray-300 rounded px-4 py-2 text-black"
             />
           </div>
 
           {/* Guest Count */}
           <div>
-            <label className="block font-semibold mb-1">
-              No. of Guests Attending <span className="text-red-500">*</span>
-            </label>
+            <label className="block font-semibold mb-1 text-xl">No. of Guests Attending</label>
             <input
               type="number"
               name="guestCount"
-              required
               min="1"
               value={formData.guestCount}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-4 py-2"
+              className="w-full border border-gray-300 rounded px-4 py-2 text-black"
+            />
+          </div>
+
+          {/* Message */}
+          <div>
+            <label className="block font-semibold mb-1 text-xl">Message (Optional)</label>
+            <textarea
+              name="message"
+              rows="4"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Share your thoughts or special instructions..."
+              className="w-full border border-gray-300 rounded px-4 py-2 text-black"
             />
           </div>
 
@@ -143,7 +185,7 @@ export default function Enquire() {
           <div className="text-center">
             <button
               type="submit"
-              className="bg-black text-white px-6 py-2 rounded hover:bg-gray-800 transition"
+              className="bg-white text-black px-6 py-2 rounded hover:bg-gray-200 transition"
             >
               Submit Enquiry
             </button>
