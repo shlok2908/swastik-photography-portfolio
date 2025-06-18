@@ -40,7 +40,7 @@ export default function Fashion() {
   const fashionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Fashion Photography Portfolio - Swastik by Sarang",
+    "name": "Fashion Photography Portfolio - Swastik",
     "description": "Explore our fashion photography portfolio showcasing creative and artistic fashion shoots",
     "image": stories[0]?.cover || "https://swastikbysarang.com/cover.jpg",
     "url": "https://swastikbysarang.com/fashion"

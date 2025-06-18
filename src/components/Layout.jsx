@@ -7,7 +7,7 @@ export default function Layout({ children }) {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "PhotographyBusiness",
-    "name": "Swastik by Sarang",
+    "name": "Swastik ",
     "image": "https://swastikbysarang.com/cover.jpg",
     "description": "Professional wedding and fashion photography services by Sarang",
     "address": {

@@ -19,7 +19,7 @@ export default function About() {
   return (
     <>
       <SEO 
-        title="About Swastik by Sarang - Wedding & Fashion Photographer"
+        title="About Swastik - Wedding & Fashion Photographer"
         description="Learn about Swastik by Sarang, a professional wedding and fashion photographer capturing the essence of Indian culture and traditions."
         keywords="about Swastik photography, Sarang Sashvat photographer, wedding photographer India, fashion photographer, photography portfolio"
         url="https://swastikbysarang.com/aboutus"

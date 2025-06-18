@@ -17,7 +17,7 @@ function Home() {
     "url": "https://swastikbysarang.com/home",
     "mainEntity": {
       "@type": "PhotographyBusiness",
-      "name": "Swastik by Sarang",
+      "name": "Swastik ",
       "description": "Professional wedding and fashion photography services capturing the essence of Indian culture and traditions."
     }
   };

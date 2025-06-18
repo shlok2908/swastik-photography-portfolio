@@ -27,7 +27,7 @@ function Wedding() {
   const weddingSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Wedding Photography Gallery - Swastik by Sarang",
+    "name": "Wedding Photography Gallery - Swastik ",
     "description": "Explore our collection of beautiful wedding photography capturing precious moments and emotions",
     "image": stories[0]?.cover || "https://swastikbysarang.com/cover.jpg",
     "url": "https://swastikbysarang.com/wedding"
