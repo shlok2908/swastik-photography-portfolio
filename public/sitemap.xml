@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url>
     <loc>https://swastikbysarang.com/</loc>
     <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://swastikbysarang.com/home</loc>
-    <priority>1.0</priority>
-  </url>
+
+  <!-- Sections -->
   <url>
     <loc>https://swastikbysarang.com/wedding</loc>
     <priority>0.9</priority>
@@ -27,7 +24,7 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Example dynamic routes — replace with your actual slugs -->
+  <!-- Gallery Albums -->
   <url>
     <loc>https://swastikbysarang.com/gallery/alisha-rahul</loc>
     <priority>0.7</priority>
@@ -41,6 +38,7 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Story Pages -->
   <url>
     <loc>https://swastikbysarang.com/story/alisha-rahul</loc>
     <priority>0.6</priority>
