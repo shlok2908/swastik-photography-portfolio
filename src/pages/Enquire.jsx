@@ -96,7 +96,7 @@ export default function Enquire() {
 
           {/* Couple Name */}
           <div>
-            <label className="block font-semibold mb-1 text-xl">Couple Name</label>
+            <label className="block font-semibold mb-1 text-xl">Name</label>
             <input
               type="text"
               name="coupleName"

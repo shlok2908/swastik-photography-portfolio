@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Left Side: Contact + Icons */}
           <div className="flex flex-col justify-between h-full">
             <h3 className="text-xl font-semibold mb-2 tracking-widest">Contact Us</h3>
-            <p className="text-sm md:text-base leading-relaxed tracking-wide">Name: Sarang</p>
+            <p className="text-sm md:text-base leading-relaxed tracking-wide">Name: Deep Patel</p>
             <p className="text-sm md:text-base leading-relaxed tracking-wide">
               Email:{" "}
               <a
