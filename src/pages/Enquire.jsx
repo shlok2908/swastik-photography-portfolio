@@ -82,7 +82,7 @@ export default function Enquire() {
           {/* Full Name */}
           <div>
             <label className="block font-semibold mb-1 text-xl">
-              Full Name <span className="text-red-500">*</span>
+              Name <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -94,18 +94,7 @@ export default function Enquire() {
             />
           </div>
 
-          {/* Couple Name */}
-          <div>
-            <label className="block font-semibold mb-1 text-xl">Name</label>
-            <input
-              type="text"
-              name="coupleName"
-              value={formData.coupleName}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-4 py-2 text-black"
-            />
-          </div>
-
+          
           {/* Email */}
           <div>
             <label className="block font-semibold mb-1 text-xl">
