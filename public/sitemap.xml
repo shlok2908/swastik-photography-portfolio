@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+>
+  <url>
+    <loc>https://swastikbysarang.com/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://swastikbysarang.com/home</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://swastikbysarang.com/wedding</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://swastikbysarang.com/fashion</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://swastikbysarang.com/aboutus</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://swastikbysarang.com/enquire</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Example dynamic routes — replace with your actual slugs -->
+  <url>
+    <loc>https://swastikbysarang.com/gallery/alisha-rahul</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://swastikbysarang.com/gallery/maitri-dhruv</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://swastikbysarang.com/gallery/krishna-shyam</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://swastikbysarang.com/story/alisha-rahul</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://swastikbysarang.com/story/maitri-dhruv</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://swastikbysarang.com/story/krishna-shyam</loc>
+    <priority>0.6</priority>
+  </url>
+</urlset>
