@@ -57,7 +57,7 @@ export default function App() {
       } />
 
       {/* Redirect root to home if already visited */}
-      <Route path="/" element={<Navigate to="/home" replace />} />
+      {/* <Route path="/" element={<Navigate to="/home" replace />} /> */}
     </Routes>
   );
 }
