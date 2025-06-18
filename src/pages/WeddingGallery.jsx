@@ -25,15 +25,20 @@ const weddingData = {};
 
 for (const path in allWeddingImages) {
   const parts = path.split("/");
-  const slug = parts[parts.length - 2];
+  const slug = parts[parts.length - 2]; // e.g., '1-alisha-rahul'
   const image = allWeddingImages[path];
+
+  // ✅ Clean name: remove number prefix
+  const namePart = slug.split("-").slice(1).join(" ");
+  const title = namePart.replace(/\b\w/g, (c) => c.toUpperCase());
 
   if (!weddingData[slug]) {
     weddingData[slug] = {
-      title: slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+      title,
       images: [],
       cover: allCovers[`/src/assets/galleries/wedding/${slug}/cover.jpg`] || null,
-      description: allDescriptions[`/src/assets/galleries/wedding/${slug}/desc.txt`] || null
+      description:
+        allDescriptions[`/src/assets/galleries/wedding/${slug}/desc.txt`] || null,
     };
   }
 
@@ -60,7 +65,7 @@ function WeddingGallery() {
         const scrollY = window.scrollY;
         const limit = coverRef.current.offsetHeight;
         if (scrollY <= limit) {
-          setOffsetY(scrollY / 2); // Adjust the divisor for speed
+          setOffsetY(scrollY / 2);
         }
       }
     };
@@ -79,7 +84,7 @@ function WeddingGallery() {
 
   return (
     <div className="font-bodoni min-h-screen bg-[#f8f5f0] text-[#111]">
-      {/* Parallax Cover Image */}
+      {/* Parallax Cover Image with Title */}
       {wedding.cover && (
         <div
           ref={coverRef}
@@ -94,13 +99,20 @@ function WeddingGallery() {
               transition: "transform 0.1s ease-out",
             }}
           />
-          <div className="absolute inset-0 flex items-end justify-center px-4 pb-10 bg-black/30">
-            {wedding.description && (
-              <p className="text-white text-center text-xl md:text-2xl max-w-3xl leading-relaxed">
-                {wedding.description}
-              </p>
-            )}
+          <div className="absolute inset-0 flex items-center justify-center bg-black/30 px-4">
+            <h1 className="text-white text-center text-3xl md:text-5xl font-semibold">
+              {wedding.title}
+            </h1>
           </div>
+        </div>
+      )}
+
+      {/* Description Below Cover */}
+      {wedding.description && (
+        <div className="px-4 md:px-8 mt-10 text-center">
+          <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed whitespace-pre-line">
+            {wedding.description}
+          </p>
         </div>
       )}
 
@@ -115,7 +127,7 @@ function WeddingGallery() {
             <img
               key={idx}
               src={img}
-              alt={`Wedding ${idx + 1}`}
+              alt={wedding.title}
               className="w-full mb-2 shadow"
             />
           ))}

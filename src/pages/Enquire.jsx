@@ -124,7 +124,7 @@ export default function Enquire() {
           {/* Type of Shoot */}
           <div>
             <label className="block font-semibold mb-1 text-xl">
-              Type of Shoot <span className="text-red-500">*</span>
+            Service Required <span className="text-red-500">*</span>
             </label>
             <select
               name="shootType"

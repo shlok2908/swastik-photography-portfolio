@@ -43,7 +43,7 @@ export default function Navbar() {
           About Us
         </Link>
         <Link to="/enquire" className="font-semibold hover:underline text-center py-2">
-          Enquire
+          Contact Us
         </Link>
       </div>
     </nav>
