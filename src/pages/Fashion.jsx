@@ -1,5 +1,7 @@
 import React from "react";
 import Masonry from "react-masonry-css";
+import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 // Import all images from the flat folder
 const images = import.meta.glob("/src/assets/galleries/fashion/*.{jpg,jpeg,png,webp}", {
@@ -13,25 +15,95 @@ const breakpointColumnsObj = {
   0: 2,
 };
 
-export default function Fashion() {
-  return (
-    <div className="font-bodoni min-h-screen bg-[#f8f5f0] text-[#111] px-4 py-20">
-      <h1 className="text-3xl font-bold mb-6 text-center">Editorial</h1>
+const coverImages = import.meta.glob('/src/assets/galleries/fashion/*/cover.jpg', { eager: true, as: 'url' });
 
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
-        {photoList.map((img, idx) => (
-          <img
-            key={idx}
-            src={img}
-            alt={`Fashion ${idx + 1}`}
-            className="w-full mb-4 shadow"
-          />
-        ))}
-      </Masonry>
-    </div>
+const stories = Object.entries(coverImages)
+  .map(([path, url]) => {
+    const parts = path.split('/');
+    const slug = parts[parts.length - 2];
+
+    const namePart = slug
+      .split('-')
+      .slice(1)
+      .join(' ');
+
+    return {
+      slug,
+      order: parseInt(slug.split('-')[0], 10),
+      title: namePart.replace(/\b\w/g, (c) => c.toUpperCase()),
+      cover: url,
+    };
+  })
+  .sort((a, b) => a.order - b.order);
+
+export default function Fashion() {
+  const fashionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Fashion Photography Portfolio - Swastik by Sarang",
+    "description": "Explore our fashion photography portfolio showcasing creative and artistic fashion shoots",
+    "image": stories[0]?.cover || "https://swastikbysarang.com/cover.jpg",
+    "url": "https://swastikbysarang.com/fashion"
+  };
+
+  return (
+    <>
+      <SEO 
+        title="Fashion Photography Portfolio - Swastik by Sarang"
+        description="Explore our creative fashion photography portfolio. View our collection of artistic fashion shoots and editorial photography."
+        keywords="fashion photography, fashion photographer, editorial photography, fashion portfolio, fashion shoots"
+        url="https://swastikbysarang.com/fashion"
+      />
+      <script type="application/ld+json">
+        {JSON.stringify(fashionSchema)}
+      </script>
+
+      <div className="font-bodoni min-h-screen bg-[#f8f5f0] text-[#111] px-4 py-20">
+        <h1 className="text-3xl font-bold mb-6 text-center">Editorial</h1>
+
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
+          {photoList.map((img, idx) => (
+            <img
+              key={idx}
+              src={img}
+              alt={`Fashion ${idx + 1}`}
+              className="w-full mb-4 shadow"
+            />
+          ))}
+        </Masonry>
+
+        <div className="mt-10 px-4 pt-10 pb-4 max-w-6xl mx-auto bg-[#f8f5f0]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {stories.map((story) => (
+              <Link
+                key={story.slug}
+                to={`/gallery/${story.slug}`}
+                className="block group transition hover:shadow-xl"
+              >
+                <div className="bg-white p-4 rounded shadow-md h-full flex flex-col">
+                  <div className="aspect-[4/5] w-full overflow-hidden">
+                    <img
+                      src={story.cover}
+                      alt={`Fashion Photography - ${story.title}`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      width="400"
+                      height="500"
+                    />
+                  </div>
+                  <div className="text-base font-semibold mt-4 text-center text-gray-800">
+                    {story.title}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
   );
 }

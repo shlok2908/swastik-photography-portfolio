@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const coverImages = import.meta.glob('/src/assets/galleries/wedding/*/cover.jpg', { eager: true, as: 'url' });
 
@@ -23,33 +24,57 @@ const stories = Object.entries(coverImages)
 
 
 function Wedding() {
+  const weddingSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Wedding Photography Gallery - Swastik by Sarang",
+    "description": "Explore our collection of beautiful wedding photography capturing precious moments and emotions",
+    "image": stories[0]?.cover || "https://swastikbysarang.com/cover.jpg",
+    "url": "https://swastikbysarang.com/wedding"
+  };
+
   return (
-    <div className="font-bodoni min-h-screen bg-[#f8f5f0] text-[#111]">
-      <div className="mt-10 px-4 pt-10 pb-4 max-w-6xl mx-auto bg-[#f8f5f0]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {stories.map((story) => (
-            <Link
-              key={story.slug}
-              to={`/gallery/${story.slug}`}
-              className="block group transition hover:shadow-xl"
-            >
-              <div className="bg-white p-4 rounded shadow-md h-full flex flex-col">
-                <div className="aspect-[4/5] w-full overflow-hidden ">
-                  <img
-                    src={story.cover}
-                    alt={story.title}
-                    className="w-full h-full object-cover"
-                  />
+    <>
+      <SEO 
+        title="Wedding Photography Gallery - Swastik by Sarang"
+        description="Explore our collection of beautiful wedding photography capturing precious moments, emotions, and cultural traditions. View our wedding photography portfolio."
+        keywords="wedding photography, wedding photographer, Indian wedding photography, candid wedding photos, wedding gallery"
+        url="https://swastikbysarang.com/wedding"
+      />
+      <script type="application/ld+json">
+        {JSON.stringify(weddingSchema)}
+      </script>
+
+      <div className="font-bodoni min-h-screen bg-[#f8f5f0] text-[#111]">
+        <div className="mt-10 px-4 pt-10 pb-4 max-w-6xl mx-auto bg-[#f8f5f0]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {stories.map((story) => (
+              <Link
+                key={story.slug}
+                to={`/gallery/${story.slug}`}
+                className="block group transition hover:shadow-xl"
+              >
+                <div className="bg-white p-4 rounded shadow-md h-full flex flex-col">
+                  <div className="aspect-[4/5] w-full overflow-hidden">
+                    <img
+                      src={story.cover}
+                      alt={`Wedding Photography - ${story.title}`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      width="400"
+                      height="500"
+                    />
+                  </div>
+                  <div className="text-base font-semibold mt-4 text-center text-gray-800">
+                    {story.title}
+                  </div>
                 </div>
-                <div className="text-base font-semibold mt-4 text-center text-gray-800">
-                  {story.title}
-                </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

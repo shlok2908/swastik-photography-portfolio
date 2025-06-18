@@ -53,7 +53,7 @@ const FeaturedStories = () => {
               key={story.id}
               src={story.cover}
               alt={story.id}
-              className="w-28 md:w-40 aspect-[9/16] rounded object-cover cursor-pointer hover:scale-105 transition"
+              className="w-28 md:w-40 aspect-[9/16] object-cover cursor-pointer hover:scale-105 transition"
               onClick={() => navigate(`/story/${story.id}`)}
             />
           ))}

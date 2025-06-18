@@ -17,7 +17,7 @@ function HeroCarousel() {
   if (images.length === 0) return null;
 
   return (
-    <div className="w-full max-w-[960px] aspect-[3/2] mx-auto overflow-hidden rounded">
+    <div className="w-full max-w-[960px] aspect-[3/2] mx-auto ">
       <img
         src={images[index]}
         alt={`slide-${index}`}

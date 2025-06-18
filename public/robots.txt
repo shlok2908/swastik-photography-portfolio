@@ -1,0 +1,31 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://swastikbysarang.com/sitemap.xml
+
+# Crawl-delay for all bots
+Crawl-delay: 10
+
+# Disallow admin or private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Allow specific bots with different rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 5
+
+# Block bad bots
+User-agent: BadBot
+Disallow: /
+
+# Block archive.org
+User-agent: archive.org_bot
+Disallow: / 
