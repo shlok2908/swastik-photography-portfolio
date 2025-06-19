@@ -27,8 +27,8 @@ function Wedding() {
   const weddingSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Wedding Photography Gallery - Swastik ",
-    "description": "Explore our collection of beautiful wedding photography capturing precious moments and emotions",
+    "name": "Wedding Photography Collections | Swastik by Sarang",
+    "description": "Browse our exclusive wedding photography collections featuring candid moments, cultural ceremonies, and timeless memories captured by Swastik by Sarang.",
     "image": stories[0]?.cover || "https://swastikbysarang.com/cover.jpg",
     "url": "https://swastikbysarang.com/wedding"
   };
@@ -36,9 +36,9 @@ function Wedding() {
   return (
     <>
       <SEO 
-        title="Wedding Photography Gallery - Swastik by Sarang"
-        description="Explore our collection of beautiful wedding photography capturing precious moments, emotions, and cultural traditions. View our wedding photography portfolio."
-        keywords="wedding photography, wedding photographer, Indian wedding photography, candid wedding photos, wedding gallery"
+        title="Wedding Photography Collections | Swastik by Sarang"
+        description="Browse our exclusive wedding photography collections featuring candid moments, cultural ceremonies, and timeless memories captured by Swastik by Sarang."
+        keywords="wedding photography collections, Indian wedding photography, candid wedding photos, cultural wedding photography, wedding photographer India, Swastik by Sarang"
         url="https://swastikbysarang.com/wedding"
       />
       <script type="application/ld+json">

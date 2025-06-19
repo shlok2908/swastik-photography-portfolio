@@ -15,9 +15,8 @@ import Enquire from "./pages/Enquire";
 export default function App() {
   return (
     <Routes>
-      {/* Landing page route */}
+      {/* Landing page route - this should be your main entry point */}
       <Route path="/" element={<Landing />} />
-    
       
       {/* Protected routes that require Layout */}
       <Route path="/home" element={
@@ -56,8 +55,8 @@ export default function App() {
         </Layout>
       } />
 
-      {/* Redirect root to home if already visited */}
-      {/* <Route path="/" element={<Navigate to="/home" replace />} /> */}
+      {/* Catch all route - redirect to home if no match */}
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }

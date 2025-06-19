@@ -40,8 +40,8 @@ export default function Fashion() {
   const fashionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Fashion Photography Portfolio - Swastik",
-    "description": "Explore our fashion photography portfolio showcasing creative and artistic fashion shoots",
+    "name": "Fashion Photography Portfolio | Swastik by Sarang",
+    "description": "Explore our creative fashion photography portfolio showcasing artistic fashion shoots, editorial photography, and stunning fashion moments captured by Swastik by Sarang.",
     "image": stories[0]?.cover || "https://swastikbysarang.com/cover.jpg",
     "url": "https://swastikbysarang.com/fashion"
   };
@@ -49,9 +49,9 @@ export default function Fashion() {
   return (
     <>
       <SEO 
-        title="Fashion Photography Portfolio - Swastik by Sarang"
-        description="Explore our creative fashion photography portfolio. View our collection of artistic fashion shoots and editorial photography."
-        keywords="fashion photography, fashion photographer, editorial photography, fashion portfolio, fashion shoots"
+        title="Fashion Photography Portfolio | Swastik by Sarang"
+        description="Explore our creative fashion photography portfolio showcasing artistic fashion shoots, editorial photography, and stunning fashion moments captured by Swastik by Sarang."
+        keywords="fashion photography portfolio, editorial photography, fashion shoots, fashion photographer India, artistic fashion photography, Swastik by Sarang"
         url="https://swastikbysarang.com/fashion"
       />
       <script type="application/ld+json">

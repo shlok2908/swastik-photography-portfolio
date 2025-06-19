@@ -12,12 +12,12 @@ function Home() {
   const homeSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Swastik by Sarang - Wedding & Fashion Photography",
-    "description": "Swastik by Sarang Sashvat is more than a photography brand, it's a cultural lens capturing the soul of Indian heritage through wedding and fashion photography.",
+    "name": "Swastik by Sarang - Home | Wedding & Fashion Photography Portfolio",
+    "description": "Discover Swastik by Sarang's photography portfolio featuring stunning wedding photography, fashion shoots, and cultural moments captured with artistic vision.",
     "url": "https://swastikbysarang.com/home",
     "mainEntity": {
       "@type": "PhotographyBusiness",
-      "name": "Swastik ",
+      "name": "Swastik by Sarang",
       "description": "Professional wedding and fashion photography services capturing the essence of Indian culture and traditions."
     }
   };
@@ -25,9 +25,9 @@ function Home() {
   return (
     <>
       <SEO 
-        title="Swastik by Sarang - Wedding & Fashion Photography"
-        description="Swastik by Sarang Sashvat is more than a photography brand, it's a cultural lens capturing the soul of Indian heritage through wedding and fashion photography."
-        keywords="wedding photography, fashion photography, Indian wedding photographer, cultural photography, candid photography, Swastik by Sarang"
+        title="Swastik by Sarang - Home | Wedding & Fashion Photography Portfolio"
+        description="Discover Swastik by Sarang's photography portfolio featuring stunning wedding photography, fashion shoots, and cultural moments captured with artistic vision."
+        keywords="photography portfolio, wedding photography, fashion photography, Swastik by Sarang, Indian photographer, cultural photography"
         url="https://swastikbysarang.com/home"
       />
       <script type="application/ld+json">
