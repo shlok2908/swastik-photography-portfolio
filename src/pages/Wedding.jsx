@@ -40,6 +40,7 @@ function Wedding() {
         description="Browse our exclusive wedding photography collections featuring candid moments, cultural ceremonies, and timeless memories captured by Swastik by Sarang."
         keywords="wedding photography collections, Indian wedding photography, candid wedding photos, cultural wedding photography, wedding photographer India, Swastik by Sarang"
         url="https://swastikbysarang.com/wedding"
+        robots="noindex, nofollow"
       />
       <script type="application/ld+json">
         {JSON.stringify(weddingSchema)}

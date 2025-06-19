@@ -69,6 +69,7 @@ export default function Enquire() {
         description="Book your wedding or fashion photography session with Swastik by Sarang. Get in touch to discuss your photography needs and secure your special moments."
         keywords="book photography, wedding photography booking, fashion photography booking, photography enquiry, Swastik by Sarang contact, photography services"
         url="https://swastikbysarang.com/enquire"
+        robots="noindex, nofollow"
       />
       
       <div

@@ -23,6 +23,7 @@ export default function About() {
         description="Learn about Swastik by Sarang, a passionate wedding and fashion photographer dedicated to capturing the soul of Indian culture and traditions through artistic photography."
         keywords="about Swastik photography, Sarang Sashvat photographer, wedding photographer India, fashion photographer, photography story, Indian culture photography"
         url="https://swastikbysarang.com/aboutus"
+        robots="noindex, nofollow"
       />
       <script type="application/ld+json">
         {JSON.stringify(aboutSchema)}

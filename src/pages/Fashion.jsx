@@ -53,6 +53,7 @@ export default function Fashion() {
         description="Explore our creative fashion photography portfolio showcasing artistic fashion shoots, editorial photography, and stunning fashion moments captured by Swastik by Sarang."
         keywords="fashion photography portfolio, editorial photography, fashion shoots, fashion photographer India, artistic fashion photography, Swastik by Sarang"
         url="https://swastikbysarang.com/fashion"
+        robots="noindex, nofollow"
       />
       <script type="application/ld+json">
         {JSON.stringify(fashionSchema)}

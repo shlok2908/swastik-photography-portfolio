@@ -6,7 +6,8 @@ const SEO = ({
   keywords = "Swastik Photography, Sarang Photographer, wedding photographer India, fashion photography, candid photography, love stories, couple shoots",
   image = "https://swastikbysarang.com/cover.jpg",
   url = "https://swastikbysarang.com",
-  type = "website"
+  type = "website",
+  robots = "noindex, nofollow"
 }) => {
   return (
     <Helmet>
@@ -30,7 +31,7 @@ const SEO = ({
       <meta name="twitter:image" content={image} />
 
       {/* Additional SEO Meta Tags */}
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={robots} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       <meta name="author" content="Swastik by Sarang" />
     </Helmet>

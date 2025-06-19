@@ -7,9 +7,8 @@ function Landing() {
   return (
     <>
       <Helmet>
-        <title>Welcome to Swastik by Sarang | Enter Our Photography World</title>
-        <meta name="description" content="Welcome to Swastik by Sarang - Premier wedding and fashion photography. Click to enter our world of timeless moments and artistic vision." />
-        <meta name="robots" content="noindex, nofollow" />
+        <title>Welcome to Swastik by Sarang | Artistic Wedding & Fashion Photography</title>
+        <meta name="description" content="Step into Swastik by Sarang — experience creative wedding and fashion photography, love stories, and cultural moments. Enter to explore our unique portfolio." />
         <link rel="canonical" href="https://swastikbysarang.com/" />
       </Helmet>
       

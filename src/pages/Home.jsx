@@ -29,6 +29,7 @@ function Home() {
         description="Discover Swastik by Sarang's photography portfolio featuring stunning wedding photography, fashion shoots, and cultural moments captured with artistic vision."
         keywords="photography portfolio, wedding photography, fashion photography, Swastik by Sarang, Indian photographer, cultural photography"
         url="https://swastikbysarang.com/home"
+        robots="noindex, nofollow"
       />
       <script type="application/ld+json">
         {JSON.stringify(homeSchema)}
