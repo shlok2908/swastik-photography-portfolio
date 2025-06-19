@@ -1,5 +1,14 @@
-# Allow all crawlers
+# Allow all crawlers but restrict inner pages
 User-agent: *
+Disallow: /fashion
+Disallow: /wedding
+Disallow: /aboutus
+Disallow: /story/
+Disallow: /gallery/
+Disallow: /enquire
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
 Allow: /
 
 # Sitemap location
@@ -8,17 +17,25 @@ Sitemap: https://swastikbysarang.com/sitemap.xml
 # Crawl-delay for all bots
 Crawl-delay: 10
 
-# Disallow admin or private areas
-Disallow: /admin/
-Disallow: /private/
-Disallow: /api/
-
-# Allow specific bots with different rules
+# Specific rules for Googlebot
 User-agent: Googlebot
+Disallow: /fashion
+Disallow: /wedding
+Disallow: /aboutus
+Disallow: /story/
+Disallow: /gallery/
+Disallow: /enquire
 Allow: /
 Crawl-delay: 5
 
+# Specific rules for Bingbot
 User-agent: Bingbot
+Disallow: /fashion
+Disallow: /wedding
+Disallow: /aboutus
+Disallow: /story/
+Disallow: /gallery/
+Disallow: /enquire
 Allow: /
 Crawl-delay: 5
 
@@ -28,4 +45,4 @@ Disallow: /
 
 # Block archive.org
 User-agent: archive.org_bot
-Disallow: / 
+Disallow: /
