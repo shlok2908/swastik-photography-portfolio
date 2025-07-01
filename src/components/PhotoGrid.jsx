@@ -2,23 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeable } from "react-swipeable";
 
-// Import thumbnails and full images from folders
-const thumbs = import.meta.glob("../assets/photogrid/thumbs/*.avif", {
+// Auto-import all image URLs from folder
+const imagesObj = import.meta.glob("../assets/photogrid/*.avif", {
   eager: true,
-  query: "?url",
-  import: "default",
+  as: "url",
 });
-
-const fulls = import.meta.glob("../assets/photogrid/full/*.avif", {
-  eager: true,
-  query: "?url",
-  import: "default",
-});
-
-
-// Ensure both are sorted by filename
-const thumbUrls = Object.entries(thumbs).sort().map(([, url]) => url);
-const fullUrls = Object.entries(fulls).sort().map(([, url]) => url);
+const photoUrls = Object.values(imagesObj).sort();
 
 const columns = 4;
 const rows = 2;
@@ -28,58 +17,44 @@ export default function PhotoGrid() {
   const [startIndex, setStartIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const containerRef = useRef(null);
-  const [loaded, setLoaded] = useState({});
 
-  // Preload upcoming full-size images for smoother transitions
-useEffect(() => {
-  const preloadIndexes = [];
+  // Preload images
+  useEffect(() => {
+    photoUrls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+    });
+  }, []);
 
-  // Look ahead by 1 slide (i.e., 8 images)
-  const nextStart = (startIndex + photosPerSlide) % fullUrls.length;
-
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < columns; c++) {
-      const idx = nextStart + c + r * columns;
-      if (idx < fullUrls.length) preloadIndexes.push(idx);
-    }
-  }
-
-  preloadIndexes.forEach((i) => {
-    const img = new Image();
-    img.src = fullUrls[i];
-  });
-}, [startIndex]);
-
-
-  // Auto-slide every 7 seconds
-useEffect(() => {
-  const interval = setInterval(() => {
-    nextSlide();
-  }, 7000); // ← 7000ms = 7s
-
-  return () => clearInterval(interval); // Cleanup on unmount
-}, []);
-
+  // Auto-slide every 10s
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 7000);
+    return () => clearInterval(timer);
+  }, []);
 
   const nextSlide = () => {
     setDirection(2);
     setStartIndex((prev) =>
-      prev + rows < fullUrls.length - columns ? prev + 2 : 0
+      prev + rows < photoUrls.length - columns ? prev + 2 : 0
     );
   };
 
   const prevSlide = () => {
     setDirection(-2);
     setStartIndex((prev) =>
-      prev - 1 >= 0 ? prev - 2 : Math.max(fullUrls.length - photosPerSlide, 0)
+      prev - 1 >= 0 ? prev - 2 : Math.max(photoUrls.length - photosPerSlide, 0)
     );
   };
 
-  const visibleIndexes = [];
+  const visiblePhotos = [];
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < columns; c++) {
       const index = startIndex + c + r * columns;
-      if (index < fullUrls.length) visibleIndexes.push(index);
+      if (index < photoUrls.length) {
+        visiblePhotos.push(photoUrls[index]);
+      }
     }
   }
 
@@ -94,7 +69,10 @@ useEffect(() => {
       x: direction > 0 ? 300 : -300,
       opacity: 0,
     }),
-    center: { x: 0, opacity: 1 },
+    center: {
+      x: 0,
+      opacity: 1,
+    },
     exit: (direction) => ({
       x: direction < 0 ? 300 : -300,
       opacity: 0,
@@ -133,21 +111,12 @@ useEffect(() => {
           transition={{ duration: 0.4 }}
           className="grid grid-cols-4 grid-rows-2 gap-2"
         >
-          {visibleIndexes.map((i) => (
-            <div key={fullUrls[i]} className="w-full overflow-hidden rounded relative">
+          {visiblePhotos.map((url, idx) => (
+            <div key={url} className="w-full overflow-hidden rounded">
               <img
-                src={thumbUrls[i]}
-                alt={`thumb-${i}`}
-                className="w-full h-auto object-cover rounded blur-sm scale-105 absolute inset-0"
-              />
-              <img
-                src={fullUrls[i]}
-                alt={`photo-${i}`}
-                loading="lazy"
-                onLoad={() => setLoaded((prev) => ({ ...prev, [i]: true }))}
-                className={`w-full h-auto object-cover rounded transition-opacity duration-500 ${
-                  loaded[i] ? "opacity-100" : "opacity-0"
-                }`}
+                src={url}
+                alt={`photo-${startIndex + idx}`}
+                className="w-full h-auto object-cover rounded"
               />
             </div>
           ))}
