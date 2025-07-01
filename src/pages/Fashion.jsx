@@ -15,7 +15,7 @@ const breakpointColumnsObj = {
   0: 2,
 };
 
-const coverImages = import.meta.glob('/src/assets/galleries/fashion/*/cover.jpg', { eager: true, as: 'url' });
+const coverImages = import.meta.glob('/src/assets/galleries/fashion/*/cover.jpg', { eager: true, query: '?url', import: 'default' });
 
 const stories = Object.entries(coverImages)
   .map(([path, url]) => {

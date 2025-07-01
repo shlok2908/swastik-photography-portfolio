@@ -5,19 +5,19 @@ import { useEffect, useRef, useState } from "react";
 // Load all wedding images
 const allWeddingImages = import.meta.glob(
   "/src/assets/galleries/wedding/*/*.{jpg,jpeg,png,webp}",
-  { eager: true, as: "url" }
+  { eager: true, query: '?url', import: 'default' }
 );
 
 // Load all cover images
 const allCovers = import.meta.glob(
   "/src/assets/galleries/wedding/*/cover.jpg",
-  { eager: true, as: "url" }
+  { eager: true, query: '?url', import: 'default' }
 );
 
 // Load all desc.txt files
 const allDescriptions = import.meta.glob(
   "/src/assets/galleries/wedding/*/desc.txt",
-  { eager: true, as: "raw" }
+  { eager: true, query: '?raw', import: 'default' }
 );
 
 // Group images by folder

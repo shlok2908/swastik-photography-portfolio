@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
-const coverImages = import.meta.glob('/src/assets/galleries/wedding/*/cover.jpg', { eager: true, as: 'url' });
+const coverImages = import.meta.glob('/src/assets/galleries/wedding/*/cover.jpg', { eager: true, query: '?url', import: 'default' });
 
 const stories = Object.entries(coverImages)
   .map(([path, url]) => {

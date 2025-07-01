@@ -5,7 +5,8 @@ import { useSwipeable } from "react-swipeable";
 // Auto-import all image URLs from folder
 const imagesObj = import.meta.glob("../assets/photogrid/*.avif", {
   eager: true,
-  as: "url",
+  query: '?url',
+  import: 'default',
 });
 const photoUrls = Object.values(imagesObj).sort();
 
