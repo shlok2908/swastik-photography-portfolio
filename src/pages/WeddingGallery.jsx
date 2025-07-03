@@ -10,7 +10,7 @@ const allWeddingImages = import.meta.glob(
 
 // Load all cover images
 const allCovers = import.meta.glob(
-  "/src/assets/galleries/wedding/*/cover.jpg",
+  "/src/assets/galleries/wedding/*/cover.webp",
   { eager: true, query: '?url', import: 'default' }
 );
 
@@ -36,7 +36,7 @@ for (const path in allWeddingImages) {
     weddingData[slug] = {
       title,
       images: [],
-      cover: allCovers[`/src/assets/galleries/wedding/${slug}/cover.jpg`] || null,
+      cover: allCovers[`/src/assets/galleries/wedding/${slug}/cover.webp`] || null,
       description:
         allDescriptions[`/src/assets/galleries/wedding/${slug}/desc.txt`] || null,
     };

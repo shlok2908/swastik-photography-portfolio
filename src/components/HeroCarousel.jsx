@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 
 // Auto-import all images from the hero folder
-const imagesObj = import.meta.glob("../assets/hero/*.{jpg,jpeg,png,webp}", { eager: true, as: "url" });
+const imagesObj = import.meta.glob("../assets/hero/*.{jpg,jpeg,png,webp}", { 
+  eager: true,
+  query: '?url',
+  import: 'default',
+});
 const images = Object.values(imagesObj).sort();
 
 function HeroCarousel() {

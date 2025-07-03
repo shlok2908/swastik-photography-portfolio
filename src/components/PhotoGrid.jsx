@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeable } from "react-swipeable";
 
 // Auto-import all image URLs from folder
-const imagesObj = import.meta.glob("../assets/photogrid/*.avif", {
+const imagesObj = import.meta.glob("../assets/photogrid/*.webp", {
   eager: true,
   query: '?url',
   import: 'default',

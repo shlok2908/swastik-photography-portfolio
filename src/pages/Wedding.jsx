@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
-const coverImages = import.meta.glob('/src/assets/galleries/wedding/*/cover.jpg', { eager: true, query: '?url', import: 'default' });
+const coverImages = import.meta.glob('/src/assets/galleries/wedding/*/cover.webp', { eager: true, query: '?url', import: 'default' });
 
 const stories = Object.entries(coverImages)
   .map(([path, url]) => {
@@ -47,7 +47,7 @@ function Wedding() {
       </script>
 
       <div className="font-bodoni min-h-screen bg-[#f8f5f0] text-[#111]">
-        <div className="mt-10 px-4 pt-10 pb-4 max-w-6xl mx-auto bg-[#f8f5f0]">
+        <div className="mt-10 px-4 pt-10 lg:pt-28 pb-4 max-w-6xl mx-auto bg-[#f8f5f0]">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {stories.map((story) => (
               <Link

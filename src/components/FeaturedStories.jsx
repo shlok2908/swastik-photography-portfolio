@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// Load all images from assets/stories/<folder>/*.jpg
-const images = import.meta.glob('../assets/stories/*/*.{jpg,jpeg,png}', { eager: true });
+// ✅ Load all .webp images from assets/stories/*/*.webp
+const images = import.meta.glob('../assets/stories/*/*.webp', { eager: true });
 
 const FeaturedStories = () => {
   const [stories, setStories] = useState([]);
@@ -22,7 +22,7 @@ const FeaturedStories = () => {
         storyMap[folder] = { id: folder, cover: '', images: [] };
       }
 
-      if (file.toLowerCase() === 'cover.jpg') {
+      if (file.toLowerCase() === 'cover.webp') {
         storyMap[folder].cover = url;
       } else {
         storyMap[folder].images.push(url);

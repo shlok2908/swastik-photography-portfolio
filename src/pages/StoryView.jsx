@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const images = import.meta.glob('../assets/stories/*/*.{jpg,jpeg,png}', { eager: true });
+const images = import.meta.glob('../assets/stories/*/*.{jpg,jpeg,png,webp}', { eager: true });
 
 const StoryView = () => {
   const { id } = useParams();
@@ -16,7 +16,7 @@ const StoryView = () => {
       const file = parts[4];
       const url = images[path].default;
 
-      if (folder === id && file.toLowerCase() !== 'cover.jpg') {
+      if (folder === id && file.toLowerCase() !== 'cover.webp') {
         tempImages.push(url);
       }
     }
