@@ -1,48 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-// ✅ Load all .webp images from assets/stories/*/*.webp
-const images = import.meta.glob('../assets/stories/*/*.webp', { eager: true });
+// Load only cover images
+const covers = import.meta.glob("../assets/stories/*/cover.webp", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
 
 const FeaturedStories = () => {
   const [stories, setStories] = useState([]);
-  const [isRealMobile, setIsRealMobile] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storyMap = {};
-
-    for (const path in images) {
-      const parts = path.split('/');
+    const list = Object.entries(covers).map(([path, url]) => {
+      const parts = path.split("/");
       const folder = parts[3];
-      const file = parts[4];
-      const url = images[path].default;
-
-      if (!storyMap[folder]) {
-        storyMap[folder] = { id: folder, cover: '', images: [] };
-      }
-
-      if (file.toLowerCase() === 'cover.webp') {
-        storyMap[folder].cover = url;
-      } else {
-        storyMap[folder].images.push(url);
-      }
-    }
-
-    setStories(Object.values(storyMap));
-  }, []);
-
-  useEffect(() => {
-    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    const isMobileUA = /iphone|ipod|android|ipad/.test(navigator.userAgent.toLowerCase());
-    const realMobile = isTouch && isMobileUA && window.innerWidth <= 768;
-    setIsRealMobile(realMobile);
+      return {
+        id: folder,
+        cover: url,
+      };
+    });
+    setStories(list);
   }, []);
 
   return (
     <div className="my-4 text-center">
       <p className="text-xl mt-1 italic font-bold text-gray-600 uppercase tracking-wide">
-        "Not just a photographer — A storyteller of love, style and music." 
+        "Not just a photographer — A storyteller of love, style and music."
       </p>
 
       {/* Mobile View */}
@@ -55,6 +40,7 @@ const FeaturedStories = () => {
               alt={story.id}
               className="w-28 md:w-40 aspect-[9/16] object-cover cursor-pointer hover:scale-105 transition"
               onClick={() => navigate(`/story/${story.id}`)}
+              loading="lazy"
             />
           ))}
         </div>
@@ -71,6 +57,7 @@ const FeaturedStories = () => {
                 alt={story.id}
                 className="w-[30rem] aspect-[9/16] object-cover cursor-pointer hover:scale-105 transition mx-auto"
                 onClick={() => navigate(`/story/${story.id}`)}
+                loading="lazy"
               />
             ))}
           </div>

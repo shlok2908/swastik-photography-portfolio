@@ -25,10 +25,9 @@ const weddingData = {};
 
 for (const path in allWeddingImages) {
   const parts = path.split("/");
-  const slug = parts[parts.length - 2]; // e.g., '1-alisha-rahul'
+  const slug = parts[parts.length - 2];
   const image = allWeddingImages[path];
 
-  // ✅ Clean name: remove number prefix
   const namePart = slug.split("-").slice(1).join(" ");
   const title = namePart.replace(/\b\w/g, (c) => c.toUpperCase());
 
@@ -59,20 +58,36 @@ function WeddingGallery() {
   const coverRef = useRef(null);
   const [offsetY, setOffsetY] = useState(0);
 
+  // Smooth parallax effect
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      if (coverRef.current) {
-        const scrollY = window.scrollY;
-        const limit = coverRef.current.offsetHeight;
-        if (scrollY <= limit) {
-          setOffsetY(scrollY / 2);
-        }
+      if (!coverRef.current) return;
+
+      const scrollY = window.scrollY;
+      const limit = coverRef.current.offsetHeight;
+
+      if (!ticking && scrollY <= limit) {
+        window.requestAnimationFrame(() => {
+          setOffsetY(scrollY / 2); // Adjust multiplier for depth
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [slug]); // ✅ re-run on new gallery
+
+  // Scroll to top on gallery change
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+    setOffsetY(0); // Reset
+  }, [slug]);
 
   if (!wedding) {
     return (
@@ -86,17 +101,13 @@ function WeddingGallery() {
     <div className="font-bodoni min-h-screen bg-[#f8f5f0] text-[#111]">
       {/* Parallax Cover Image with Title */}
       {wedding.cover && (
-        <div
-          ref={coverRef}
-          className="relative w-full overflow-hidden h-[80vh]"
-        >
+        <div ref={coverRef} className="relative w-full overflow-hidden h-[80vh]">
           <img
             src={wedding.cover}
             alt="Cover"
-            className="w-full h-full object-cover opacity-55"
+            className="w-full h-full object-cover opacity-55 transition-transform duration-75 ease-out"
             style={{
               transform: `translateY(${offsetY}px)`,
-              transition: "transform 0.1s ease-out",
             }}
           />
           <div className="absolute inset-0 flex items-center justify-center bg-black/30 px-4">
@@ -107,7 +118,7 @@ function WeddingGallery() {
         </div>
       )}
 
-      {/* Description Below Cover */}
+      {/* Description */}
       {wedding.description && (
         <div className="px-4 md:px-8 mt-10 text-center">
           <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed whitespace-pre-line">
@@ -116,7 +127,7 @@ function WeddingGallery() {
         </div>
       )}
 
-      {/* Gallery */}
+      {/* Image Grid */}
       <div className="px-4 py-16">
         <Masonry
           breakpointCols={breakpointColumnsObj}
@@ -129,6 +140,7 @@ function WeddingGallery() {
               src={img}
               alt={wedding.title}
               className="w-full mb-2 shadow"
+              loading="lazy"
             />
           ))}
         </Masonry>
