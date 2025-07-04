@@ -39,8 +39,7 @@ function Landing() {
           <source src="/videos/background.mp4" type="video/mp4" />
         </video>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-30 z-10" />
+      
 
         {/* Button */}
         <div className="absolute inset-0 z-20 flex justify-center items-end md:items-center">

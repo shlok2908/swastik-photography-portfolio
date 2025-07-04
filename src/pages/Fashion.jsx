@@ -5,8 +5,9 @@ import SEO from '../components/SEO';
 
 // Import all images from the flat folder
 const images = import.meta.glob("/src/assets/galleries/fashion/*.{jpg,jpeg,png,webp}", {
-  eager: true,
-  as: "url",
+   eager: true,
+  query: '?url',
+  import: 'default',
 });
 const photoList = Object.values(images);
 

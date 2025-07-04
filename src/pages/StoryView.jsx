@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const images = import.meta.glob('../assets/stories/*/*.{jpg,jpeg,png,webp}', { eager: true });
+const images = import.meta.glob('../assets/stories/*/*.{jpg,jpeg,png,webp}', { 
+  eager: true 
+});
 
 const StoryView = () => {
   const { id } = useParams();
