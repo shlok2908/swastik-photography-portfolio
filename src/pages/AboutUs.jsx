@@ -29,7 +29,7 @@ export default function About() {
         {JSON.stringify(aboutSchema)}
       </script>
 
-      <div className="font-bodoni min-h-screen bg-[#f8f5f0] text-[#111] flex items-center justify-center px-4">
+      <div className="pt-6 font-bodoni min-h-screen bg-[#f8f5f0] text-[#111] flex items-center justify-center px-4">
         <div className="flex flex-col md:flex-row items-center max-w-5xl w-full gap-8 mt-20">
           {/* Text on Left */}
           <div className="md:w-1/2 text-center md:text-left">
@@ -40,7 +40,7 @@ export default function About() {
           </div>
 
           {/* Image on Right */}
-          <div className="md:w-1/2">
+          <div className="pt-6 md:w-1/2">
             <img
               src={aboutPhoto}
               alt="Deep Patel"

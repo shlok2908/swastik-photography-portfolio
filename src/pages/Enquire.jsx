@@ -9,6 +9,7 @@ export default function Enquire() {
     fullName: "",
     coupleName: "",
     email: "",
+     contactNumber: "",
     shootType: "",
     eventDate: "",
     guestCount: "",
@@ -29,6 +30,7 @@ export default function Enquire() {
       full_name: formData.fullName,
       couple_name: formData.coupleName,
       email: formData.email,
+      contact_number: formData.contactNumber,
       event_date: formData.eventDate,
       guest_count: formData.guestCount,
       shoot_type: formData.shootType,
@@ -50,6 +52,7 @@ export default function Enquire() {
             fullName: "",
             coupleName: "",
             email: "",
+            contactNumber: "",
             shootType: "",
             eventDate: "",
             guestCount: "",
@@ -84,9 +87,36 @@ export default function Enquire() {
 
         {/* Form Container */}
         <div className="relative z-10 w-full max-w-3xl text-white p-6 md:p-10 font-bodoni opacity-70">
-          <h1 className="text-4xl font-bold mb-8 text-center">Enquire</h1>
+          <h1 className="pt-6 text-4xl font-bold mb-8 text-center">Enquire</h1>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+         <div className="text-center mt-6 space-y-2 font-bold">
+          <p>
+            Please complete the form below and provide as many details as possible to help us create an accurate estimate. 
+            We aim to respond within 48 hours. If you do not hear from us or if it is an urgent inquiry, 
+            please call us at the number below.
+          </p>
+
+          <a 
+            href="mailto:swastik.enquire@gmail.com" 
+            className="hover:underline block text-lg text-bold"
+          >
+            swastik.enquire@gmail.com
+          </a>
+
+          <a 
+            href="tel:+916355023913" 
+            className="hover:underline block text-lg"
+          >
+            +91 6355023913
+          </a>
+
+          <p className="text-lg">
+            Ahemdabad  · Anand 
+          </p>
+        </div>
+
+
+          <form onSubmit={handleSubmit} className=" pt-6 space-y-6">
             {/* Full Name */}
             <div>
               <label className="block font-semibold mb-1 text-xl">
@@ -117,10 +147,28 @@ export default function Enquire() {
               />
             </div>
 
+            {/* Contact Number */}
+            <div>
+              <label className="block font-semibold mb-1 text-xl">
+                Contact Number <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="tel"
+                name="contactNumber"
+                required
+                value={formData.contactNumber}
+                onChange={handleChange}
+                pattern="[0-9]{10}" // allows only 10-digit numbers
+                className="w-full border border-gray-300 rounded px-4 py-2 text-black"
+                placeholder="Enter your phone number"
+              />
+            </div>
+
+
             {/* Type of Shoot */}
             <div>
               <label className="block font-semibold mb-1 text-xl">
-                Service Required <span className="text-red-500">*</span>
+                Shoot Type <span className="text-red-500">*</span>
               </label>
               <select
                 name="shootType"
